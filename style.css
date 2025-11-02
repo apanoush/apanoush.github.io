@@ -84,7 +84,7 @@ h1:hover, p:hover, th:hover {
 }
 
 td:hover {
-	font-size: calc(var(--font-size) * 0.52);
+	/*font-size: calc(var(--font-size) * 0.52);*/
 	font-style: italic;
-	transition: font-size 0.2s ease , font-style 0.2s ease;
+	transition: font-style 0.2s ease; /*font-size 0.2s ease ,*/
 }
