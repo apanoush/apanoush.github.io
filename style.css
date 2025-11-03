@@ -90,3 +90,14 @@ td:hover {
 	font-style: italic;
 	transition: font-size 0.2s ease, font-style 0.2s ease;
 }
+
+/* anchor visualization */
+:target {
+  animation: highlight 1.5s ease;
+}
+
+/* define the temporary highlight animation */
+@keyframes highlight {
+  0%   { background-color: #fff3b0; } /* #FFCCB0 for orange */
+  100% { background-color: transparent; }
+}
