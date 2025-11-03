@@ -79,8 +79,7 @@ tr:hover {
 	background-color: #f1f1f1;
 }
 
-
-h1:hover, p:hover, th:hover {
+h1:hover, h2:hover, p:hover, th:hover {
 	opacity: var(--hover-opacity);
 	transition: opacity 0.1s ease;
 }
