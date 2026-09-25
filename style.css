@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root{
 	--hover-opacity: 0.6;
 	--font-size: 200%;
@@ -65,19 +67,21 @@ tr:nth-child(even) {
 	background-color: #f9f9f9;
 }
 
-tr:hover {
-	background-color: #f1f1f1;
-}
+@media (hover: hover) {
+	tr:hover {
+		background-color: #f1f1f1;
+	}
 
-h1:hover, h2:hover, p:hover, th:hover {
-	opacity: var(--hover-opacity);
-	transition: opacity 0.1s ease;
-}
+	h1:hover, h2:hover, p:hover, th:hover {
+		opacity: var(--hover-opacity);
+		transition: opacity 0.1s ease;
+	}
 
-td:hover {
-	font-size: calc(var(--font-size) * 0.52);
-	font-style: italic;
-	transition: font-size 0.2s ease, font-style 0.2s ease;
+	td:hover {
+		font-size: calc(var(--font-size) * 0.52);
+		font-style: italic;
+		transition: font-size 0.2s ease, font-style 0.2s ease;
+	}
 }
 
 /* anchor visualization */
@@ -89,4 +93,69 @@ td:hover {
 @keyframes highlight {
   0%   { background-color: #fff3b0; } /* #FFCCB0 for orange */
   100% { background-color: transparent; }
+}
+
+/* mobile: tables become horizontally swipeable card strips */
+@media (max-width: 720px) {
+	table {
+		display: block;
+		font-size: 1.1rem;
+	}
+
+	tbody {
+		display: flex;
+		gap: 12px;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: thin;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	table tr:first-child {
+		display: none; /* column headers become per-cell labels */
+	}
+
+	tbody tr {
+		display: block;
+		flex: 0 0 min(78vw, 420px);
+		scroll-snap-align: start;
+		border: 1px solid #ddd;
+		background-color: #fff;
+	}
+
+	tbody tr:nth-child(even) {
+		background-color: #fff;
+	}
+
+	td {
+		display: block;
+		border: none;
+	}
+
+	td + td {
+		border-top: 1px solid #eee;
+	}
+
+	td:empty {
+		display: none;
+	}
+
+	td::before {
+		color: #777;
+	}
+
+	.projects td:nth-child(1)::before { content: "Areas: "; }
+	.projects td:nth-child(3)::before { content: "Lab: "; }
+	.projects td:nth-child(4)::before { content: "Date: "; }
+	.projects td:nth-child(5)::before { content: "Links: "; }
+
+	.publications td:nth-child(1)::before { content: "Type: "; }
+	.publications td:nth-child(3)::before { content: "Venue: "; }
+	.publications td:nth-child(4)::before { content: "Date: "; }
+	.publications td:nth-child(5)::before { content: "Links: "; }
+
+	.projects td:nth-child(2),
+	.publications td:nth-child(2) {
+		font-weight: bold;
+	}
 }
