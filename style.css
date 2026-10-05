@@ -2,7 +2,7 @@
 
 :root{
 	--hover-opacity: 0.6;
-	--font-size: 200%;
+	--font-size: 150%; /*200%*/
 }
 
 @font-face {
@@ -28,6 +28,9 @@
 	font-family: DejaVu;
 }
 
+a {
+	color: purple;
+}
 
 h1 {
 	color: purple;
@@ -78,9 +81,9 @@ tr:nth-child(even) {
 	}
 
 	td:hover {
-		font-size: calc(var(--font-size) * 0.52);
+		/*font-size: calc(var(--font-size) * 0.52);*/
 		font-style: italic;
-		transition: font-size 0.2s ease, font-style 0.2s ease;
+		transition: font-style 0.1s ease; /*font-size 0.2s ease*/
 	}
 }
 
